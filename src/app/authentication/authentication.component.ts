@@ -17,14 +17,17 @@ export class AuthenticationComponent implements OnInit {
 
   login(event, user) {
     event.preventDefault();
-    this.authenticationService.authenticate(user).subscribe(data => {
-                let j = data.json();
-               console.log('here is the json!', j);
-            },
-            error => {
-                alert('oh no');
-            });
+    this.authenticationService.authenticate(user).subscribe(resp => {
+      console.log(resp.message);
+      // let authResponse = user;
+      // if (authResponse.success) {
+      //   console.log(authResponse.message);
+      // }
+      // else {
+      //   console.log(authResponse.message);
+      // }
 
+    });
   }
 }
 // this.http.host('localhost:3000/api/v1/users/authenticate')

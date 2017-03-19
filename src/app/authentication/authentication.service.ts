@@ -9,7 +9,7 @@ export class AuthenticationService {
 
   authenticate(user) {
     return this.http.post('http://localhost:3000/api/v1/users/authenticate.json', user)
-                    .map(response => { response.json() });
+                    .map((res:Response) => res.json());
   }
 }
 
