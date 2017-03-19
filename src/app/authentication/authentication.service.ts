@@ -13,7 +13,8 @@ export class AuthenticationService {
   }
 
   signup(user) {
-    return this.http.post('http://localhost:3000/api/v1/users/authenticate.json', user)
+  	let newUser = {'user': user}
+    return this.http.post('http://localhost:3000/api/v1/users.json', newUser)
                 .map((res:Response) => res.json());
   }
 }

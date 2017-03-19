@@ -11,7 +11,7 @@ import { AuthenticationService } from './authentication.service';
 export class AuthenticationComponent implements OnInit {
 
   isSignin = true;
-  user = { email: '', password: ''};
+  user = { email: '', password: '', password_confiramtion: ''};
 
   constructor(private authenticationService: AuthenticationService) {}
 
@@ -28,6 +28,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   signup() {
+    
     this.authenticationService.signup(this.user).subscribe(resp => {
       console.log(resp.message);
     });
