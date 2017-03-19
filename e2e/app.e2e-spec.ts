@@ -1,6 +1,6 @@
 import { RoadTripPage } from './app.po';
 
-describe('road-trip App', () => {
+describe('road-trip App', function() {
   let page: RoadTripPage;
 
   beforeEach(() => {

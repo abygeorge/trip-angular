@@ -1,6 +1,8 @@
-<div class="container">
-    <h1>Signin</h1>
-    <form (ngSubmit)="login($event, user)">
+<!-- <toaster-container></toaster-container> -->
+<div class="container loader_classs">
+    <h1 [ngClass]="{true:'btn-primary', false:'btn-default'}[isSignin]" class="btn" (click)="toggleSignin()">Signin</h1>
+    <h1 [ngClass]="{true:'btn-default', false:'btn-primary'}[isSignin]" class="btn" (click)="toggleSignin()">Signup</h1>
+    <form (ngSubmit)="submitAuthForm()">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" required
@@ -8,7 +10,11 @@
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+      </div>
+      <div class="form-group" *ngIf="!isSignin">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password_confiramtion" name="password" required>
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>

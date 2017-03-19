@@ -7,9 +7,14 @@ export class AuthenticationService {
 
   constructor(private http: Http) { }
 
-  authenticate(user) {
+  signin(user) {
     return this.http.post('http://localhost:3000/api/v1/users/authenticate.json', user)
-                    .map((res:Response) => res.json());
+               .map((res:Response) => res.json());
+  }
+
+  signup(user) {
+    return this.http.post('http://localhost:3000/api/v1/users/authenticate.json', user)
+                .map((res:Response) => res.json());
   }
 }
 
